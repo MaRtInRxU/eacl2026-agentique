@@ -1,18 +1,22 @@
-# AGENTS.md - Directives pour les agents IA
+# Lemmatisation et POS par LLM
 
-ce travail s'inscrit dans une recherche en humanités numériques de pointe sur le grec ancien
+Annoter les langues anciennes (GRC, HYE, KAT, SYC) par API, puis évaluer le résultat contre une vérité terrain. 
+Le code d'origine est dans XXXXX/XXXXXX/XXXXXX. 
 
-le fichier de données se trouve ici : data/corpus/train/GRC_train.tsv
+## Règles 
+- Python : ne jamais installer via pip directement. Utilise "uv add"
+- L'environnement de travail est le venv du dossier XXXXX. 
+- La clef API est dans XXXXX. 
+- Ne jamais modifier les scripts d'origine du repo.
+- Un agent ne lit jamais les données brutes et le tagset, ces tâches sont réservées au script développé. 
 
-form	lemma	pos
-ταὐτόν	ὁ@αὐτός	DET@PRO+Dem
-οἶμαι	οἴομαι (–ω)	V
-πέπονθας	πάσχω	V
-ταῖς	ὁ	DET
-μελίσσαις	μέλισσα	N+Com
+## Travail des agents 
+- Pour annoter utilise l'agent annotateur. 
+- Pour valider les résultats, utilise l'agent validateur. 
+- Lance le validateur uniquement quand l'agent annotateru a terminé son travail. 
 
-assure toi que la sortie est bien un tableau, que les tags appartiennent à la liste
-
-tu dois lemmatiser puis post-tagger les données que voilà. 
-
-il faut que ce soit un tableau de trois colonnes respectivement form ; lemma ; pos format tsv 
+## Repères 
+- GRC = grec ancien
+- HYE = arménien ancien ... 
+- [expliquer la structure du dossier dataset]
+- modèles openrouter : le nom des modèles suit la logique "éditeur/modèle" 
